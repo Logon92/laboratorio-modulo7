@@ -1,8 +1,10 @@
 interface Partida{
     puntuacionJugador: number;
+    estadoPartida: EstadoPartida;
 }
 export const partida : Partida = {
-    puntuacionJugador : 0
+    puntuacionJugador : 0,
+    estadoPartida : "POR_DEBAJO_MAXIMO"
 };
 
 
@@ -13,6 +15,11 @@ interface mp{
 export const mP:mp = {
     maximaPuntuacion : 7.5
 }
+
+export type EstadoPartida =
+  | "POR_DEBAJO_MAXIMO"
+  | "JUSTO_MAXIMA"
+  | "TE_HAS_PASADO";
 
 
 export const obtenerUrlCarta = (carta: number) => {

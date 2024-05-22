@@ -1,3 +1,15 @@
+import {partida, EstadoPartida} from './modelo'
+
+export const obtenerEstadoPartida = (): EstadoPartida => {
+  if (partida.puntuacionJugador === 7.5) {
+    partida.estadoPartida = "JUSTO_MAXIMA";
+  }
+  if (partida.puntuacionJugador > 7.5) {
+    partida.estadoPartida = "TE_HAS_PASADO";
+  }
+  return partida.estadoPartida;
+};
+
 export function dameCarta(min:number, max:number) {
     min = Math.ceil(1);
     max = Math.floor(10);

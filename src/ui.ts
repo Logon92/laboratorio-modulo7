@@ -1,6 +1,6 @@
 import {obtenerUrlCarta, partida, mP} from "./modelo";
 
-import {dameCarta, obtenerNumeroCarta} from "./motor";
+import {dameCarta, obtenerNumeroCarta, obtenerEstadoPartida} from "./motor";
 
 export const muestraPuntuacion = () => { //Función que muestre la puntuación actual en el div
     const elementoPuntuacion = document.getElementById("puntuacion");
@@ -23,7 +23,7 @@ export const muestraCarta = () => { //Función que muestre la carta que ha salid
     const urlCarta = obtenerUrlCarta(carta);
     sumarPuntuacion(carta);
     muestraSuma(partida.puntuacionJugador);
-    gameOver(partida.puntuacionJugador);
+    gameOver();
     pintarCarta(urlCarta);
     puntuacionMaximaSuperada(partida.puntuacionJugador);
     if (elementoMuestraCarta instanceof HTMLDivElement && elementoMuestraCarta !== null && elementoMuestraCarta !== undefined){
@@ -50,14 +50,14 @@ export const muestraSuma = (puntuacionJugador:number) => { //Función que muestr
         }
     }
 
-export const gameOver = (puntuacionJugador:number) => { //Función Game Over
+export const gameOver = () => { //Función Game Over
         const elementoGameOver = document.getElementById("gameOver");
-        if (puntuacionJugador > 7.5){
+        if (obtenerEstadoPartida() === "TE_HAS_PASADO"){
             if (elementoGameOver){
             elementoGameOver.innerHTML = `💀¡Game Over! Has pasado de 7.5 puntos, vuelve a intentarlo.`;
             }
         }
-        if (puntuacionJugador === 7.5){ //Partida ganada
+        if (obtenerEstadoPartida() === "JUSTO_MAXIMA"){ //Partida ganada
             if (elementoGameOver){
             elementoGameOver.innerHTML = `🥳¡¡ Lo has clavado! ¡Enhorabuena!!🎉`;
         }
