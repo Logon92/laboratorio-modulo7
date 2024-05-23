@@ -10,10 +10,8 @@ export const obtenerEstadoPartida = (): EstadoPartida => {
   return partida.estadoPartida;
 };
 
-export function dameCarta(min:number, max:number) {
-    min = Math.ceil(1);
-    max = Math.floor(10);
-    return Math.floor(Math.random() * (max - min + 1) + min);
+export function dameCarta() {
+    return Math.ceil(Math.random() * 10);
   }
 
 export const obtenerNumeroCarta = (numeroAleatorio: number) => {

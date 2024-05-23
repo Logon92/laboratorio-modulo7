@@ -18,7 +18,7 @@ export const pintarCarta = (urlCarta:string) => {
 
 export const muestraCarta = () => { //Función que muestre la carta que ha salido en el div
     const elementoMuestraCarta = document.getElementById("cartaMostrada");
-    let numeroAleatorio:number = dameCarta(1, 10);
+    let numeroAleatorio:number = dameCarta();
     const carta = obtenerNumeroCarta(numeroAleatorio);
     const urlCarta = obtenerUrlCarta(carta);
     sumarPuntuacion(carta);

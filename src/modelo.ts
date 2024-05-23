@@ -20,7 +20,7 @@ export type EstadoPartida =
   | "POR_DEBAJO_MAXIMO"
   | "JUSTO_MAXIMA"
   | "TE_HAS_PASADO";
-
+  
 
 export const obtenerUrlCarta = (carta: number) => {
     switch (carta) {
